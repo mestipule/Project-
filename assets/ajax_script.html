@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>FOODIES</title>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript">
+
+
+  function ourRecipe(){
+
+    
+
+    $.ajax({
+    type: 'GET',
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/menuItems/suggest?number=10&query=chicken',
+    headers: {
+        "X-RapidAPI-Key":"591dbcc7d6mshdce628f7ef8a003p154387jsnfaa503cd34f9"
+    },
+   error: function(request,status,errorThrown) {
+        // There's been an error, do something with it!
+        // Only use status and errorThrown.
+        // Chances are request will not have anything in it.
+        console.log('errorThrown', errorThrown)
+   }
+ }).done(function(data) {
+   console.log(data); 
+   for (i=0;i<data.results.length;i++){
+  console.log(data.results[i].title);
+}
+});}
+  </script>
+
+</body>
+
+</html>
