@@ -28,6 +28,26 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
    console.log(data); 
    for (i=0;i<data.results.length;i++){
   console.log(data.results[i].title);
+  //(coded by mge) 
+  // isolated issue, that one the url didn't work 
+  var repiceImg = "https://webknox.com/recipeImages/" + data.results[i].image;
+  var newDivImage = $("<div>");
+  var imageTagCreate = $("<img>");
+  var anchorTagImage = $("<a>");
+  var recipeTag = $("<p>");
+  var recipeName = data.results[i].title;
+  imageTagCreate.attr("src", repiceImg);
+  newDivImage.addClass("image-display");
+  anchorTagImage.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+  anchorTagImage.attr("target", "_blank");
+  anchorTagImage.append(imageTagCreate);
+  newDivImage.append(anchorTagImage);
+  recipeTag.append(recipeName);
+  recipeTag.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+  recipeTag.attr("target", "_blank");
+  anchorTagImage.append(recipeTag);
+  $("#results-textarea").append(newDivImage);
+//(ends for mge)
 }
 });}
 
