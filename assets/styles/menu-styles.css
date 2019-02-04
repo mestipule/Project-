@@ -1,5 +1,7 @@
 div#header{
     height: 200px; 
+    margin-bottom: 45px;
+    text-align: center;
 }
 #banner{
     margin:20px 0 0 0;
@@ -14,11 +16,12 @@ div#header{
 }
 #dropdownMenuButton{
     text-align: left;
-    width:210px;
+    width:175px;
     color: rgb(200, 227, 253);
     background-color: gray;
-    font-size: 25px;
+    font-size: 35px;
     margin: 0 0 0 0;
+    font-family: 'Bangers', cursive;
 }
 .dropdown-menu{
     border: 1px solid black;
