@@ -67,24 +67,7 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             //appending the div(titles abd images) package to our html index page.
                     $("#picture-boxes").prepend(searchResults);      
                     
-            // var repiceImg = "https://webknox.com/recipeImages/" + data.results[i].image;
-            // var newDivImage = $("<div>");
-            // var imageTagCreate = $("<img>");
-            // var anchorTagImage = $("<a>");
-            // var recipeTag = $("<p>");
-            // var recipeName = data.results[i].title;
-            // imageTagCreate.attr("src", repiceImg);
-            // newDivImage.addClass("image-display col-4");
-            // anchorTagImage.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
-            // anchorTagImage.attr("target", "_blank");
-            // anchorTagImage.append(imageTagCreate);
-            // newDivImage.append(anchorTagImage);
-            // recipeTag.append(recipeName);
-            // recipeTag.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
-            // recipeTag.attr("target", "_blank");
-            // anchorTagImage.append(recipeTag);
-            // $("#results-textarea").append(newDivImage);
-}
+            // 
 
 
     $.ajax({
