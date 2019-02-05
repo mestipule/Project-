@@ -5,7 +5,9 @@ div#header{
 }
 #banner{
     margin:20px 0 0 0;
-    background-color: aqua;
+    background-image: url("https://foodrevolution.org/wp-content/uploads/2018/03/blog-featured_healthy_foods-20180306.jpg");
+    background-position: center;
+    background-size: cover;
 }
 #menu-background{
     background-color: gray;

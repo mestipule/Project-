@@ -25,7 +25,6 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             //variable for return titles and images.
                     var returnTitle = data.results[i].title;
                     var picImage = data.results[i].image;
-
             //create div for single reutrn item.
                     var searchResults = $("<div>");
             //create <p> tag for returnTitles.
@@ -34,6 +33,7 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
                     //console.log(p);
             //create image tag for returned images.
                     var returnImage = $("<img>");
+                    var anchorTag = $("<a>");
                     returnImage.addClass('image-search');
             //give the image tag src and attributes for the returned results.
                     returnImage.attr("src", baseUrl+picImage);
