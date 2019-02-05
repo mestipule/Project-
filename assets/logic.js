@@ -26,22 +26,24 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
                     var returnTitle = data.results[i].title;
                     var picImage = data.results[i].image;
             //create div for single reutrn item.
-                    var searchResults = $("<div>");
+                    var searchResults = $("c");
             //create <p> tag for returnTitles.
-                    var p = $("<p>").text("Yummmy: " + returnTitle);
-                    p.addClass("title-search");
+                    // var p = $("<p>").text("Yummmy: " + returnTitle);
+                    // var searchResults = $("<p>");
+                    // p.addClass("card-body");
                     //console.log(p);
             //create image tag for returned images.
                     var returnImage = $("<img>");
-                    var anchorTag = $("<a>");
+                    returnImage.addClass("card-img-top");
                     returnImage.addClass('image-search');
             //give the image tag src and attributes for the returned results.
                     returnImage.attr("src", baseUrl+picImage);
             //appending the images and titles to the tags we created.
                     searchResults.append(returnImage);
-                    searchResults.append(p);
-            //appending the div(titles abd images) package to our html index page.
-                    $("#picture-boxes").prepend(searchResults);      
+                    // searchResults.append(p);
+            //appending the div(titles and images) package to our html index page.
+                    $("#picture-boxes").prepend(searchResults);    
+                    
                     
 }
 
@@ -60,7 +62,6 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
     })
 });}
 
-
 // on click this submits prompts and pulls the queries from the api
 
 $('#button-submit').on('click', function() {
@@ -78,9 +79,14 @@ ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme);
 
 })
 
+
+
 $("#button-clear").click(function() {
     $(this).closest('form').find("input[type=text], textarea").val("");
 
 });
+
+
+
 
 
