@@ -8,7 +8,7 @@ var Exclude = '';
 var Intolerance = '';
 var returnNum = '';
 var Theme = '';
-var baseUrl = 'https://spoonacular.com/recipeImages/';
+var baseUrl = 'https://webknox.com/recipeImages/';
 
 
 function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
@@ -19,34 +19,73 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
     headers: {
         "X-RapidAPI-Key":"591dbcc7d6mshdce628f7ef8a003p154387jsnfaa503cd34f9"
     },
-
+        error: function(request,status,errorThrow){
+            console.log('errorThrow', errorThrow)
+        }
         }).done(function(data) {
             console.log(data); 
                 for (i=0;i<data.results.length;i++){
             //variable for return titles and images.
                     var returnTitle = data.results[i].title;
-                    var picImage = data.results[i].image;
+                    console.log(returnTitle);
+                
+                    var picImage = "https://webknox.com/recipeImages/" + data.results[i].image;
+                    var anchorTagImage = $("<a>");
+                    var textAnchorTag = $("<a>");
             //create div for single reutrn item.
-                    var searchResults = $("c");
+                    var searchResults = $("<div>");
             //create <p> tag for returnTitles.
-                    // var p = $("<p>").text("Yummmy: " + returnTitle);
-                    // var searchResults = $("<p>");
-                    // p.addClass("card-body");
+                    var p = $("<p>")
+                    p.addClass("title-search");
+                    p.text(returnTitle);
+
+
+                    textAnchorTag.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+                    textAnchorTag.attr("target", "_blank");
+                    textAnchorTag.append(p);
+                    
+                    console.log(p);
+                   
                     //console.log(p);
             //create image tag for returned images.
                     var returnImage = $("<img>");
-                    returnImage.addClass("card-img-top");
-                    returnImage.addClass('image-search');
-            //give the image tag src and attributes for the returned results.
-                    returnImage.attr("src", baseUrl+picImage);
-            //appending the images and titles to the tags we created.
-                    searchResults.append(returnImage);
-                    // searchResults.append(p);
-            //appending the div(titles and images) package to our html index page.
-                    $("#picture-boxes").prepend(searchResults);    
-                    
+                    returnImage.attr("src", picImage);
+                    searchResults.addClass("picture-boxes col-4");
+                   // returnImage.addClass('image-search');
+                    anchorTagImage.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+                    anchorTagImage.attr("target", "_blank");
+                    anchorTagImage.append(returnImage);
 
+
+            //give the image tag src and attributes for the returned results.
+                   // returnImage.attr("src", baseUrl+picImage);
+            //appending the images and titles to the tags we created.
+                    searchResults.append(anchorTagImage);
+                    searchResults.append(textAnchorTag);
+
+                   // searchResults.addClass("picture-boxes col-4");
+            //appending the div(titles abd images) package to our html index page.
+                    $("#picture-boxes").prepend(searchResults);      
+                    
+            // var repiceImg = "https://webknox.com/recipeImages/" + data.results[i].image;
+            // var newDivImage = $("<div>");
+            // var imageTagCreate = $("<img>");
+            // var anchorTagImage = $("<a>");
+            // var recipeTag = $("<p>");
+            // var recipeName = data.results[i].title;
+            // imageTagCreate.attr("src", repiceImg);
+            // newDivImage.addClass("image-display col-4");
+            // anchorTagImage.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+            // anchorTagImage.attr("target", "_blank");
+            // anchorTagImage.append(imageTagCreate);
+            // newDivImage.append(anchorTagImage);
+            // recipeTag.append(recipeName);
+            // recipeTag.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
+            // recipeTag.attr("target", "_blank");
+            // anchorTagImage.append(recipeTag);
+            // $("#results-textarea").append(newDivImage);
 }
+
 
     $.ajax({
     type: 'GET',
@@ -62,6 +101,7 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             $("#joke-header").append(jokeP);
     })
 });}
+
 
 // on click this submits prompts and pulls the queries from the api
 
@@ -80,14 +120,9 @@ ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme);
 
 })
 
-
-
 $("#button-clear").click(function() {
     $(this).closest('form').find("input[type=text], textarea").val("");
 
 });
-
-
-
 
 
