@@ -19,6 +19,7 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
     headers: {
         "X-RapidAPI-Key":"591dbcc7d6mshdce628f7ef8a003p154387jsnfaa503cd34f9"
     },
+
         }).done(function(data) {
             console.log(data); 
                 for (i=0;i<data.results.length;i++){
@@ -44,7 +45,7 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             //appending the div(titles and images) package to our html index page.
                     $("#picture-boxes").prepend(searchResults);    
                     
-                    
+
 }
 
     $.ajax({
