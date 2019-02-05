@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Crumber</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="assets/styles/page-styles.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/slider-style.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/menu-styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+</head>
+
+
+<body>
+    
+
+<!--MASTER CONTAINER -->
+
+<div class="container-fluid" id="banner">
+
+
+
+<!--HEADER-->
+<div class="row">
+    <div class="container-fluid" id="header">
+    <h3 class="display-3"><img src="https://fontmeme.com/permalink/190204/d185c4d0f9b3059a91e9ee5419ea4738.png"
+            alt="glue-gun-font"></h3>
+    </div>
+</div>
+<!--DROPDOWN MENU BUTTONS!!!-->
+
+<!--dropdownONE-->
+<div class="row" id="menu-background">
+<div class="dropdown">
+   <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+FOOD TYPE
+   </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a></br>
+      <a class="dropdown-item" href="#">Another action</a></br>
+        <a class="dropdown-item" href="#">Something else here</a></br>
+          </div>
+</div>
+
+     <!--dropdownTWO-->
+<div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+DIET TYPE
+    </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a></br>
+      <a class="dropdown-item" href="#">Another action</a></br>
+        <a class="dropdown-item" href="#">Something else here</a></br>
+         </div>
+</div>
+
+    <!--dropdownTHREE-->
+<div class="dropdown">
+     <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+EXCLUDE
+    </button>
+   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+     <a class="dropdown-item" href="#">Action</a></br>
+       <a class="dropdown-item" href="#">Another action</a></br>
+         <a class="dropdown-item" href="#">Something else here</a></br>
+           </div>
+</div>
+
+     <!--dropdownFOUR-->
+<div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+ALLERGIES
+    </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a></br>
+          <a class="dropdown-item" href="#">Another action</a></br>
+            <a class="dropdown-item" href="#">Something else here</a></br>
+              </div>
+</div>
+
+    <!--dropdownFIVE-->
+<div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+MEAL TIME
+    </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#">Action</a></br>
+          <a class="dropdown-item" href="#">Another action</a></br>
+            <a class="dropdown-item" href="#">Something else here</a></br>
+              </div>
+</div>
+            
+
+    <!--dropdownSIX-->
+<div class="dropdown">
+    <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+REACH
+    </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-item" id="slidecontainer">
+                    <p>Default range slider:</p>
+                    <input type="range" min="1" max="50" value="50">
+              </div>
+    </div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+<!--column 2 --- picture boxes and joke boxes.-->
+    <div class="col-lg-9">
+            <div class="container" id="picture-col">
+            <div id="scrollbox">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://via.placeholder.com/200
+
+C/O https://placeholder.com/" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                            content.</p>
+                    </div>
+                </div>
+            <div id="picture-boxes"></div>
+            </div>
+                </div>
+    </div>
+
+<!--ROW 3 --- JOKES CARD.-->  
+    <div class="col-lg-3">
+        <div class="card" id="joke-card">
+        <div class="card-body" id="jokes">
+        <h5 class="card-title" id="joke-header">joke!</br></h5>
+            </div>
+            </div>           
+    </div>
+
+
+</div>
+
+
+<!--START FORM.-->
+<div class="form-container-fluid">  
+        <form>
+        
+        <div class="col-lg-6">
+            <div class="card" id="form-head">
+                <div class="card-header" id="form-title">Search Parameters:</div>
+            </div>
+          
+            <div class="form-group">
+                <label for="input">Food:</label>
+                <input type="idiom" class="form-control" id="search-food" placeholder="Search Food">
+            </div>
+          
+            <div class="form-group" id="search-number">
+                <label for="input">Diet:</label>
+                <input type="idiom" class="form-control" id="dietary-preference" placeholder="Dietary Preference">
+            </div>
+        
+            <div class="form-group">
+                <label for="input">Exclude:</label>
+                <input type="idiom" class="form-control" id="allergy" placeholder="Allergy">
+            </div>
+          
+            <div class="form-group">
+                <label for="input">Allergies:</label>
+                <input type="input" class="form-control" id="intolerance" placeholder="Allergy">
+            </div>
+        
+            <div class="form-group">
+                <label for="input">search reach:</label>
+                <input type="num" class="form-control" id="input-result" placeholder="search number">
+            </div>
+        
+            <div class="form-group" id="end-year">
+                <label for="input">Meal:</label>
+                <input type="text" class="form-control" id="theme" placeholder="mealtime">
+            </div>
+        
+            <!--BUTTON SUBMIT FORM BUTTONS.-->
+            <div id="submit-css">
+                    <button type="button" class="btn btn-default" id="button-submit">
+                    <span class="glyphicon glyphicon-search"></span> Search</button>
+                    <button type="Clear " class="btn btn-primary" id="button-clear">Clear Results</button>
+            </div>
+        </form>
+        </div>
+        
+        <!--END FORM.-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src = "assets/logic.js"></script>
+</body>
+</html>
