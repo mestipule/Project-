@@ -1,50 +1,17 @@
-// setup variables
-// ==================
-var authKey = "NnHQGAcM2mzMG272PGida5YDkWNmzgFU";
-
-var Food = '';
-var Diet = '';
-var Exclude = '';
-var Intolerance = '';
-var returnNum = '';
-var Theme = '';
-var baseUrl = 'https://spoonacular.com/recipeImages/';
+//YUMMLY ID variables....................................
+var mainCourse = '';
+var chooseDiet = '';
+var addIngredient = '';
+var excludeIngredient = '';
+var Allergy = '';
+var Cuisine = '';  
+var appID = 'ad9dde64';
+var apiKey = 'dd23675598c15c270213370a7b95f878';
 
 
-function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
+function ourJoke(){
 
-    $.ajax({
-    type: 'GET',
-    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?diet='+Diet+'&excludeIngredients='+Exclude+'&intolerances='+Intolerance+'&number='+returnNum+'&type='+Theme+'&query='+Food,
-    headers: {
-        "X-RapidAPI-Key":"591dbcc7d6mshdce628f7ef8a003p154387jsnfaa503cd34f9"
-    },
-        }).done(function(data) {
-            console.log(data); 
-                for (i=0;i<data.results.length;i++){
-            //variable for return titles and images.
-                    var returnTitle = data.results[i].title;
-                    var picImage = data.results[i].image;
-
-            //create div for single reutrn item.
-                    var searchResults = $("<div>");
-            //create <p> tag for returnTitles.
-                    var p = $("<p>").text("Yummmy: " + returnTitle);
-                    p.addClass("title-search");
-                    //console.log(p);
-            //create image tag for returned images.
-                    var returnImage = $("<img>");
-                    returnImage.addClass('image-search');
-            //give the image tag src and attributes for the returned results.
-                    returnImage.attr("src", baseUrl+picImage);
-            //appending the images and titles to the tags we created.
-                    searchResults.append(returnImage);
-                    searchResults.append(p);
-            //appending the div(titles abd images) package to our html index page.
-                    $("#picture-boxes").prepend(searchResults);      
-                    
-}
-
+//JOKE CALL SPOONACULAR...............
     $.ajax({
     type: 'GET',
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/jokes/random',
@@ -57,30 +24,69 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             jokeP.addClass("joke-text");
             jokeP.append(joke);
             $("#joke-header").append(jokeP);
-    })
+    });}
+
+function ourTrivia(){
+
+//JOKE CALL SPOONACULAR...............
+    $.ajax({
+    type: 'GET',
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/trivia/random',
+    headers: {
+         "X-RapidAPI-Key":"591dbcc7d6mshdce628f7ef8a003p154387jsnfaa503cd34f9"
+    },
+        }).done(function(trivia) {
+            console.log(trivia.text);
+            var triviaP = $("<h>").text('Trivia! '+trivia.text);
+            triviaP.addClass("trivia-text");
+            triviaP.append(trivia);
+            $("#trivia-header").append(triviaP);
+    });}
+
+function yummlyRecipe(callData){
+
+$.ajax({
+    type: 'GET',
+    url: 'http://api.yummly.com/v1/api/recipes?_app_id='+appID+'&_app_key='+apiKey+'&q='+mainCourse+'&excludeIngredient[]='+excludeIngredient+addIngredient+'&allowedDiet[]='+chooseDiet+'&allowedAllergy[]='+Allergy+'&allowedCuisine[]='+Cuisine+'&maxResult=10&start=10&requirePictures=true',
+
+
+    }).done(function (result) {
+        //console.log(result); 
+        var NumRecipe=result.matches.length;
+            console.log("number of recipe"+ NumRecipe);
+            for(i=0;i<NumRecipe; i++){
+                var RecipeIdPar=result.matches[i].id;
+                    console.log("test recipe"+ result.matches[i].id);
+                    yummlyRecipe2(RecipeIdPar);
+            }
+    
 });}
 
 
-// on click this submits prompts and pulls the queries from the api
+function yummlyRecipe2(RecipeIdPar){
+
+$.ajax({
+    type: 'GET',
+    url: 'http://api.yummly.com/v1/api/recipe/'+RecipeIdPar+'?_app_id=ad9dde64&_app_key=dd23675598c15c270213370a7b95f878&maxResult=30&start=10',
+    
+    }).done(function (result) {
+        console.log(result);        
+});}
 
 $('#button-submit').on('click', function() {
-
-    Food = $('#search-food').val().trim();
-    Diet = $('#dietary-preference').val().trim();
-    Exclude = $('#allergy').val().trim();
-    Intolerance = $('#intolerance').val().trim();
-    returnNum = $('#input-result').val().trim();
-    Theme = $('#theme').val().trim();
-
-//console.log(searchTerm);
-//alert(searchTerm);
-ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme);
-
+   alert('Submission!');
 })
 
-$("#button-clear").click(function() {
-    $(this).closest('form').find("input[type=text], textarea").val("");
+$('#recipe-button').on('click', function(){
+    
+yummlyRecipe();
+ourJoke();
+ourTrivia();
 
 });
 
+$("#button-clear").click(function() {
+        $(".input-checkbox").prop("checked", false);
+         $(".multiSel").html(''); 
+});
 

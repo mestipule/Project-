@@ -1,24 +1,27 @@
 div#header{
     height: 200px; 
+    margin-bottom: 45px;
+    text-align: center;
 }
-#banner{
-    margin:20px 0 0 0;
-    background-color: aqua;
-}
+
 #menu-background{
-    background-color: gray;
+   
+    background-color:  #2d5886; 
 }
 .dropdown{
     margin:0 0 0 40px;
     float: left;
+   
+    color: black;
 }
 #dropdownMenuButton{
     text-align: left;
-    width:210px;
+    width:175px;
     color: rgb(200, 227, 253);
     background-color: gray;
-    font-size: 25px;
+    font-size: 35px;
     margin: 0 0 0 0;
+    font-family: 'Bangers', cursive;
 }
 .dropdown-menu{
     border: 1px solid black;
@@ -27,12 +30,7 @@ div#header{
 .dropdown-item{
     font-size: 20px;
 }
-.mutliSelect ul{
-    list-style: none;
-    font-size: 20px;
+#menu-background{
+    opacity: inherit;
+    background: aliceblue;
 }
-.multiSelect input[type="checkbox"]{
-    margin-right: 0 10px 0 0;
-    text-align: left !important;
-}
-
