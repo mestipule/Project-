@@ -23,6 +23,12 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             console.log('errorThrow', errorThrow)
         }
         }).done(function(data) {
+            console.log('boxes="'+$("#picture-boxes").text().trim()+'"');
+        if ($("#picture-boxes").text().trim().length > 0){
+            $("#picture-boxes").slick("unslick");
+            $("#picture-boxes").empty();
+        }
+        
             console.log(data); 
                 for (i=0;i<data.results.length;i++){
             //variable for return titles and images.
@@ -33,10 +39,13 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
                     var anchorTagImage = $("<a>");
                     var textAnchorTag = $("<a>");
             //create div for single reutrn item.
-                    var searchResults = $("<div>");
+                    var searchResults = $(".card-img-top");
             //create <p> tag for returnTitles.
-                    var p = $("<p>")
+                    var p = $(".card-title")
                     p.addClass("title-search");
+                    if (returnTitle.length > 30) {
+                        returnTitle = returnTitle.substring(0, 29)+"...";
+                    }
                     p.text(returnTitle);
 
 
@@ -51,23 +60,29 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
                     var returnImage = $("<img>");
                     returnImage.attr("src", picImage);
                     searchResults.addClass("picture-boxes col-4");
+                    
+                   
+
                    // returnImage.addClass('image-search');
                     anchorTagImage.attr("href", "https://spoonacular.com/recipes/" + data.results[i].image.split(".")[0]);
                     anchorTagImage.attr("target", "_blank");
                     anchorTagImage.append(returnImage);
-
+                   
+                   
 
             //give the image tag src and attributes for the returned results.
                    // returnImage.attr("src", baseUrl+picImage);
             //appending the images and titles to the tags we created.
                     searchResults.append(anchorTagImage);
                     searchResults.append(textAnchorTag);
-
+                   
                    // searchResults.addClass("picture-boxes col-4");
             //appending the div(titles abd images) package to our html index page.
-                    $("#picture-boxes").prepend(searchResults);      
+                  
                     
-            // 
+
+            
+}
 
 
     $.ajax({
@@ -82,7 +97,45 @@ function ourRecipe(Food, Diet, Exclude, Intolerance, returnNum, Theme){
             jokeP.addClass("joke-text");
             jokeP.append(joke);
             $("#joke-header").append(jokeP);
-    })
+    });
+        
+    $("#picture-boxes .container").slick({
+        dots: true,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1
+            }
+            
+          }
+            // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+});
+		
 });}
 
 

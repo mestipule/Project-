@@ -3,18 +3,16 @@ div#header{
     margin-bottom: 45px;
     text-align: center;
 }
-#banner{
-    margin:20px 0 0 0;
-    background-image: url("https://foodrevolution.org/wp-content/uploads/2018/03/blog-featured_healthy_foods-20180306.jpg");
-    background-position: center;
-    background-size: cover;
-}
+
 #menu-background{
-    background-color: gray;
+   
+    background-color:  #2d5886; 
 }
 .dropdown{
     margin:0 0 0 40px;
     float: left;
+   
+    color: black;
 }
 #dropdownMenuButton{
     text-align: left;
@@ -31,4 +29,8 @@ div#header{
 }
 .dropdown-item{
     font-size: 20px;
+}
+#menu-background{
+    opacity: inherit;
+    background: aliceblue;
 }
